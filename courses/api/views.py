@@ -10,6 +10,13 @@ from rest_framework.decorators import action
 from .persmissions import IsEnrolled
 from .serializers import CourseWithContentSerializer
 
+# from rest_framework import generics
+# from ..models import Subject, Course
+# from .serializers import SubjectSerializer
+# from django.shortcuts import get_object_or_404
+# # from rest_framework.views import APIView
+# from rest_framework.response import Response
+
 
 class SubjectListView(generics.ListAPIView):
     queryset = Subject.objects.all()
@@ -22,6 +29,7 @@ class SubjectDetailView(generics.RetrieveAPIView):
 
 
 class CourseEnrollView(APIView):
+
     authentication_classes = (BasicAuthentication, )
     permission_classes = (IsAuthenticated, )
 
